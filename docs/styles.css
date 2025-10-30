@@ -1,17 +1,33 @@
 @import url("https://fonts.signalwerk.ch/css/latest/family=Work+Sans:ital,wght@0,100..900;1,100..900.css");
 
-:root {
-  --color-green: #006984;
-  --color-blue: #0054a2;
-  --color-black: #121212;
-  --color-white: #ffffff;
-  --color-gray: #767778;
-  --color-primary: var(--color-blue);
+/* Geist 1.5.1 */
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("./assets/fonts/Geist/webfonts/Geist[wght].woff2")
+    format("woff2-variations");
+}
 
+@font-feature-values "Geist" {
+  @styleset {
+    alt-l: 3;
+  }
+}
+
+:root {
+  --color-magenta: #ef476f;
+  --color-white: #ffffff;
+
+  --color-primary: var(--color-magenta);
   --link-color: var(--color-primary);
   --link-color--visited: var(--color-gray);
   --selection-color: var(--color-white);
   --selection-color-bg: var(--color-primary);
+
+  font-variant-alternates: styleset(alt-l);
 }
 
 *,
@@ -27,9 +43,9 @@
 }
 
 html {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Geist", sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: var(--rem-font-size);
   line-height: 1.5;
   color: var(--color-black);
   background-color: var(--color-white);
@@ -58,15 +74,48 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 700;
+  font-weight: 600;
   margin-top: 1rem;
   margin-bottom: 0.2rem;
   text-wrap: balance;
+  line-height: 1.1;
+}
+
+:root {
+  --header-font-size: min(7rem, 9vw);
+  --header-margin: calc(var(--header-font-size) / 5);
+}
+
+.logo {
+  width: min(30vw, 15rem);
+  height: auto;
+  bottom: 0;
+  position: sticky;
 }
 
 h1 {
-  font-size: 1.2rem;
+  font-size: var(--header-font-size);
+  margin-top: -0.185em; /* pulls block up so the first line’s top aligns to the em-square */
+  /* background-color: red; */
+  max-width: calc(var(--header-font-size) * 9);
 }
+header {
+  padding-top: var(--header-margin);
+  padding-left: var(--header-margin);
+}
+
+@media screen and (width >= 1040px) {
+}
+
+/* .max-width {
+  max-width: var(--max-width);
+  background-color: red;
+} */
+/* @media screen and (width >= 900px) {
+  h1 {
+    padding: 1rem 3rem;
+  }
+} */
 
 h2 {
   font-size: 1rem;
@@ -134,10 +183,10 @@ button:disabled {
 
 header,
 main {
-  width: 92%;
+  /* width: 92%;
   max-width: 38rem;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; */
 }
 
 .small {
