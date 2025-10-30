@@ -1,5 +1,3 @@
-@import url("https://fonts.signalwerk.ch/css/latest/family=Work+Sans:ital,wght@0,100..900;1,100..900.css");
-
 /* Geist 1.5.1 */
 @font-face {
   font-family: "Geist";
@@ -8,6 +6,17 @@
   font-stretch: 100%;
   font-display: swap;
   src: url("./assets/fonts/Geist/webfonts/Geist[wght].woff2")
+    format("woff2-variations");
+}
+
+/* 4481226b336843648b5b2ee64f75737f262ded15*/
+@font-face {
+  font-family: "Merriweather";
+  font-style: normal;
+  font-weight: 300 900;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("./assets/fonts/Merriweather/webfonts/Merriweather[opsz,wdth,wght].woff2")
     format("woff2-variations");
 }
 
@@ -20,14 +29,14 @@
 :root {
   --color-magenta: #ef476f;
   --color-white: #ffffff;
+  --color-gray: #cacaca;
+  --color-black: #000000;
 
   --color-primary: var(--color-magenta);
   --link-color: var(--color-primary);
   --link-color--visited: var(--color-gray);
   --selection-color: var(--color-white);
   --selection-color-bg: var(--color-primary);
-
-  font-variant-alternates: styleset(alt-l);
 }
 
 *,
@@ -43,7 +52,7 @@
 }
 
 html {
-  font-family: "Geist", sans-serif;
+  font-family: "Merriweather", serif;
   font-weight: 400;
   font-size: var(--rem-font-size);
   line-height: 1.5;
@@ -74,6 +83,9 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: "Geist", sans-serif;
+  font-variant-alternates: styleset(alt-l);
+
   font-weight: 600;
   margin-top: 1rem;
   margin-bottom: 0.2rem;
@@ -82,15 +94,21 @@ h6 {
 }
 
 :root {
-  --header-font-size: min(7rem, 9vw);
+  --header-font-size: min(7rem, 10vw);
   --header-margin: calc(var(--header-font-size) / 5);
 }
 
 .logo {
-  width: min(30vw, 15rem);
+  width: min(50vw, 15rem);
   height: auto;
-  bottom: 0;
-  position: sticky;
+}
+
+.address {
+  left: 0;
+  /* background-color: red; */
+  --address-width: max(18rem, 50vw);
+  width: var(--address-width);
+  margin-left: calc(100% - var(--address-width));
 }
 
 h1 {
@@ -181,6 +199,12 @@ button:disabled {
   opacity: 0.5;
 }
 
+body {
+  padding-bottom: calc(
+    8 * var(--header-margin)
+  ); /* Account for logo height + padding */
+}
+
 header,
 main {
   /* width: 92%;
@@ -192,4 +216,42 @@ main {
 .small {
   font-size: 0.8rem;
   font-weight: 400;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--color-white);
+  z-index: 10;
+}
+.footer-content {
+  padding-left: var(--header-margin);
+
+  padding-top: calc(1 * var(--header-margin));
+  padding-bottom: calc(2 * var(--header-margin));
+}
+
+footer::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0.75rem;
+  background-color: var(--color-gray);
+}
+
+.button {
+  background-color: var(--color-primary);
+  color: var(--color-black);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 8rem;
+  border: 0.15em solid var(--color-black);
+  background-color: transparent;
 }
