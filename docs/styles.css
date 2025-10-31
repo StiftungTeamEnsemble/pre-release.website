@@ -95,7 +95,7 @@ h6 {
 
 :root {
   --header-font-size: min(7rem, 10vw);
-  --header-margin: calc(var(--header-font-size) / 5);
+  --header-margin: calc(var(--header-font-size) * 0.3);
 }
 
 .logo {
@@ -123,7 +123,7 @@ h1 {
   max-width: calc(var(--header-font-size) * 9);
 }
 header {
-  padding-top: max(var(--header-margin), 10vh);
+  padding-top: var(--header-margin);
   padding-left: var(--header-margin);
 }
 
@@ -248,7 +248,7 @@ footer {
   padding-left: var(--header-margin);
 
   padding-top: calc(1 * var(--header-margin));
-  padding-bottom: calc(2 * var(--header-margin) + var(--line-height));
+  padding-bottom: calc(1 * var(--header-margin) + var(--line-height));
 }
 
 footer::after {
@@ -282,4 +282,8 @@ a.button:hover {
 
 .button:visited {
   color: var(--color-black);
+}
+
+.newsletter {
+  transform: translateX(-0.8em);
 }
