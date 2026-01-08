@@ -230,11 +230,6 @@ main {
   margin-right: auto; */
 }
 
-.small {
-  font-size: 0.8rem;
-  font-weight: 400;
-}
-
 footer {
   --line-height: 0.75rem;
   position: fixed;
